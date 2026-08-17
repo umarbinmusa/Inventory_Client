@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans dark:bg-canvas-dark dark:text-ink-dark;
+  }
+
+  /* Every quantity, price, and SKU in the app renders in mono with tabular
+     figures — the "ledger tape" signature that ties the UI back to the
+     receipts and barcodes this system prints. Apply via the `.figure` class. */
+  .figure {
+    @apply font-mono tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.brand.500");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card border border-border bg-surface shadow-card dark:border-border-dark dark:bg-surface-dark;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md px-3.5 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-500 text-white hover:bg-brand-600;
+  }
+
+  .btn-secondary {
+    @apply btn border border-border bg-surface text-ink hover:bg-canvas dark:border-border-dark dark:bg-surface-dark dark:text-ink-dark dark:hover:bg-canvas-dark;
+  }
+
+  .input {
+    @apply w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-ink placeholder:text-ink-dim focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-border-dark dark:bg-surface-dark dark:text-ink-dark;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink dark:text-ink-dark;
+  }
+
+  .field-error {
+    @apply mt-1 text-xs text-stock-out;
+  }
+}
