@@ -14,7 +14,7 @@ import {
   clearCustomerTokens,
 } from "../utils/customerTokenStorage.js";
 
-const GRAPHQL_URL = import.meta.env.VITE_GRAPHQL_URL || "https://inventory-api-x778.onrender.com/";
+const GRAPHQL_URL = import.meta.env.VITE_GRAPHQL_URL || "https://inventory-api-x778.onrender.com/graphql";
 
 const httpLink = new HttpLink({ uri: GRAPHQL_URL });
 
